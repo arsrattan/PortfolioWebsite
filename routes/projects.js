@@ -1,5 +1,4 @@
-var express = require('express');
-var router = express.Router();
+let router = require('./index')
 
 /* GET Projects page. */
 router.get('/projects', function(req, res, next) {

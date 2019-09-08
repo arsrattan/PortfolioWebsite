@@ -1,16 +1,19 @@
+//NPM module imports
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
 var app = express();
+
+//Local module imports
+var indexRouter = require('./routes/index');
+let contactRouter = require('./routes/contact');
+let projectsRouter = require('./routes/projects')
+
 const port = 3000;
 
-// view engine setup
+//Set view engine structure and type
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
@@ -20,25 +23,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Specify the routing for specific endpoints
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/contact', contactRouter);
+app.use('/projects', projectsRouter)
 
-// catch 404 and forward to error handler
+//All other endpoints should return a 404: Not Found
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-
+//Start the app, listening on the specified port
 app.listen(port, () => console.log('Now listening on port 3000...'));
 
 module.exports = app;

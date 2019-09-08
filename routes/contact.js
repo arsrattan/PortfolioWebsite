@@ -1,5 +1,4 @@
-var express = require('express');
-var router = express.Router();
+let router = require('./index')
 
 /* GET Contact Me page. */
 router.get('/contact', function(req, res, next) {
