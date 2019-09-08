@@ -1,32 +1,16 @@
 {
   "name": "portfoliowebsite",
-  "version": "1.0.0",
-  "description": "A website used to host information about me, my thoughts, and what I have to offer.",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "pg": "^7.12.1"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/arsrattan/PortfolioWebsite.git"
-  },
-  "keywords": [
-    "portfolio",
-    "aboutme",
-    "contactme",
-    "website"
-  ],
-  "author": "Anmol Rattan",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/arsrattan/PortfolioWebsite/issues"
-  },
-  "homepage": "https://github.com/arsrattan/PortfolioWebsite#readme"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11"
+  }
 }
